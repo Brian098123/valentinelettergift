@@ -1,0 +1,151 @@
+
+### **Updated Code with Flowers**  
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Valentine's Day! 🌹</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            font-family: 'Arial', cursive;
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 600px;
+            border: 3px solid #fff;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+        .timer {
+            font-size: 24px;
+            margin: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .love-letter {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            line-height: 1.6;
+        }
+        input {
+            padding: 12px;
+            margin: 15px;
+            border-radius: 8px;
+            border: 2px solid #ff4757;
+            font-size: 16px;
+        }
+        button {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        #secretMessage {
+            display: none;
+        }
+        .heart {
+            font-size: 40px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .flowers {
+            background-image: url('https://i.imgur.com/3QZQZQZ.jpg'); /* Cute flower image */
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h1>Happy Valentine's Day, My Love! 🌹</h1>
+        
+        <!-- Timer -->
+        <div class="timer" id="timer">
+            0 YEARS 0 MONTHS<br>
+            <span id="days">0</span> DAYS 
+            <span id="hours">0</span> HRS 
+            <span id="minutes">0</span> MINS 
+            <span id="seconds">0</span> SECS
+        </div>
+
+        <!-- Password Section -->
+        <p>Enter the password to unlock our secret:</p>
+        <input type="password" id="password" placeholder="💖 Hint: 256256">
+        <button onclick="checkPassword()">Unlock Forever ❤️</button>
+
+        <!-- Secret Content -->
+        <div id="secretMessage">
+            <!-- Flowers Section -->
+            <div class="flowers"></div>
+
+            <!-- Your Custom Words -->
+            <div class="love-letter">
+                <h3>To My Everything 🌟:</h3>
+                <p>Hey my love, my dream, my everything,<br>
+                I always wish that one day I'll wake up and see you beside me.<br> 
+                I miss you every single second since the day we met.<br><br>
+
+                You make me proud to live on this earth.<br>
+                Your smile holds my entire world.<br> 
+                You’ll forever be in my heart.<br><br>
+
+                I love you endlessly, Resty. 💘</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Timer (Anniversary date: 10th February 2025)
+        const anniversary = new Date('2025-02-10'); // Updated date
+        
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - anniversary;
+            
+            document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = Math.floor((diff % 86400000) / 3600000);
+            document.getElementById('minutes').textContent = Math.floor((diff % 3600000) / 60000);
+            document.getElementById('seconds').textContent = Math.floor((diff % 60000) / 1000);
+        }
+
+        // Password: 256256
+        function checkPassword() {
+            const input = document.getElementById('password').value.trim();
+            if (input === "256256") { // 🔑 Your password
+                document.getElementById('secretMessage').style.display = 'block';
+                document.querySelector('.heart').style.animation = 'none';
+            } else {
+                alert("💔 Incorrect! Try '256256'");
+            }
+        }
+
+        // Update timer every second
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
+```
